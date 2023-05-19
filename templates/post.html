@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ post.title }}</h1>
+  <h2>Created at: {{post.created_at}}</h2>
+  <p class="post">{{ post.content }}</p>
+  <p>By <a href="/users/{{ post.user.id }}">{{ post.user.get_full_name() }}</a></p>
+  <p>Tags: {% for tag in post.tags %}{{ tag.name }}{% endfor %}</p>
+  <hr>
+  <a href="/posts/{{ post.id }}/edit"><button class="edit">Edit Post</button></a>
+  <form action="/posts/{{ post.id }}/delete" method="post"><button class="delete">Delete Post</button></form>
+  <hr>
+  <a href="/">Return to Homepage</a>
+{% endblock %}

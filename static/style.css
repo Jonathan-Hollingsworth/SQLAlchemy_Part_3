@@ -1,0 +1,35 @@
+img {
+    width: 100px;
+    height: 100px;
+}
+
+button {
+    color: white;
+    text-decoration: none;
+}
+
+.post {
+    border: 2px solid black;
+}
+
+.delete {
+    background-color: crimson;
+}
+
+.save {
+    background-color: limegreen;
+}
+
+.edit {
+    background-color: darkslateblue;
+}
+
+.add {
+    background-color: gray;
+}
+
+.cancel {
+    color: darkgoldenrod;
+    border: 5px, solid, darkgoldenrod;
+    background-color: white;
+}

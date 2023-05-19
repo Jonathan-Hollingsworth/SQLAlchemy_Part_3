@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block content %}
+  <h1>Edit a Post</h1>
+  <form action="/posts/{{ post.id }}/edit" method="post">
+    Title:
+    <input type="text" name="title" value="{{ post.title }}">
+    Content:
+    <textarea name="content" cols="30" rows="10">{{ post.content }}</textarea>
+    Posted By:
+    <b>{{ post.user.get_full_name() }}</b>
+    <br>
+    Tags:
+    <select name="tags" multiple size="5">
+      {% for tag in tags %}
+        <option value="{{ tag.id }}" {% if tag in post.tags %} selected {% endif %}>{{ tag.name }}</option>
+      {% endfor %}
+    </select>
+    <hr>
+    <button type="submit" class="save">Save</button>
+  </form>
+  <br>
+  <a href="/posts/{{ post.id }}"><button class="cancel">Cancel</button></a>
+{% endblock %}
